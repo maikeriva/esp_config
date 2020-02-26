@@ -30,16 +30,16 @@ extern "C" {
  * used in the NVS.
  */
 typedef enum {
-	UINT8,
-	INT8,
-	UINT16,
-	INT16,
-	UINT32,
-	INT32,
-	UINT64,
-	INT64,
-	STRING,
-	BLOB
+    UINT8,
+    INT8,
+    UINT16,
+    INT16,
+    UINT32,
+    INT32,
+    UINT64,
+    INT64,
+    STRING,
+    BLOB
 } esp_config_encoding_t;
 
 /**
@@ -49,21 +49,21 @@ typedef enum {
  * specified as an esp_config_encoding_t.
  */
 typedef struct {
-	const char* key;						/**< Key */
-	const esp_config_encoding_t encoding;	/**< Value encoding */
-	const union {
-		const uint8_t uint8;
-		const int8_t int8;
-		const uint16_t uint16;
-		const int16_t int16;
-		const uint32_t uint32;
-		const int32_t int32;
-		const uint64_t uint64;
-		const int64_t int64;
-		const char* string;
-		const void* blob;
-	} value;						/**< Default value */
-	const size_t value_size;
+    const char* key;						/**< Key */
+    const esp_config_encoding_t encoding;	/**< Value encoding */
+    const union {
+        const uint8_t uint8;
+        const int8_t int8;
+        const uint16_t uint16;
+        const int16_t int16;
+        const uint32_t uint32;
+        const int32_t int32;
+        const uint64_t uint64;
+        const int64_t int64;
+        const char* string;
+        const void* blob;
+    } value;						/**< Default value */
+    const size_t value_size;
 } esp_config_entry_t;
 
 /**
@@ -73,9 +73,9 @@ typedef struct {
  * entries, and a pointer to an array of configuration entries.
  */
 typedef struct {
-	const char *name;						/**< Namespace name */
-	const unsigned int nentries;			/**< Number of entries in the pointed array */
-	const esp_config_entry_t *entries;		/**< Pointer to the entries array */
+    const char *name;						/**< Namespace name */
+    const unsigned int nentries;			/**< Number of entries in the pointed array */
+    const esp_config_entry_t *entries;		/**< Pointer to the entries array */
 } esp_config_namespace_t;
 
 /**
@@ -86,22 +86,22 @@ typedef struct {
  */
 #define ESP_CONFIG_DB_ENTRIES_EXAMPLE 3
 static const esp_config_entry_t example[] = {
-		{
-				.key = "i32",
-				.encoding = INT32,
-				.value = {.int32 = 12345}
-		},
-		{
-				.key = "str",
-				.encoding = STRING,
-				.value = {.string = "abcdef"}
-		},
-		{
-				.key = "blob",
-				.encoding = BLOB,
-				.value = {.blob = "abcdef"},
-				.value_size = 6
-		}
+    {
+        .key = "i32",
+        .encoding = INT32,
+        .value = {.int32 = 12345}
+    },
+    {
+        .key = "str",
+        .encoding = STRING,
+        .value = {.string = "abcdef"}
+    },
+    {
+        .key = "blob",
+        .encoding = BLOB,
+        .value = {.blob = "abcdef"},
+        .value_size = 6
+    }
 };
 
 /**
@@ -112,11 +112,11 @@ static const esp_config_entry_t example[] = {
  */
 #define ESP_CONFIG_DB_ENTRIES 1
 static const esp_config_namespace_t database[] = {
-		{
-				.name = "example",
-				.nentries = ESP_CONFIG_DB_ENTRIES_EXAMPLE,
-				.entries = example
-		}
+    {
+        .name = "example",
+        .nentries = ESP_CONFIG_DB_ENTRIES_EXAMPLE,
+        .entries = example
+    }
 };
 
 
